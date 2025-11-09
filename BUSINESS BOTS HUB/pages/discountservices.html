@@ -12,32 +12,33 @@
     <meta property="og:image" content="https://res.cloudinary.com/dxhef6dju/image/upload/v1755725396/ChatGPT_Image_Apr_16_2025_12_31_00_AM_pbed1s.png" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <link rel="preload" href="https://res.cloudinary.com/dxhef6dju/image/upload/v1755725396/ChatGPT_Image_Apr_16_2025_12_31_00_AM_pbed1s.png" as="image" />
 </head>
 <body>
     <div class="wrap">
-        <header role="banner">
-            <div class="brand">
-                <img class="brand-logo" 
-                     src="https://res.cloudinary.com/dxhef6dju/image/upload/v1755725396/ChatGPT_Image_Apr_16_2025_12_31_00_AM_pbed1s.png" 
-                     alt="Business Bots Logo" 
-                     width="64" 
-                     height="64"
-                     loading="eager" />
-                <div class="brand-text">
-                    <h1>Business Bots</h1>
-                    <p id="brand-subtitle">Lista Especial de Servicios 2025</p>
-                </div>
-            </div>
-            <nav aria-label="Selector de idioma">
-                <button class="lang-btn" aria-pressed="true" onclick="switchLanguage('es')" type="button">ES</button>
-                <button class="lang-btn" aria-pressed="false" onclick="switchLanguage('en')" type="button">EN</button>
-                <button class="lang-btn" aria-pressed="false" onclick="switchLanguage('de')" type="button">DE</button>
-                <button class="lang-btn" aria-pressed="false" onclick="switchLanguage('fr')" type="button">FR</button>
-                <button class="lang-btn" aria-pressed="false" onclick="switchLanguage('it')" type="button">IT</button>
-            </nav>
-        </header>
+                <header role="banner">
+                    <div class="header-container">
+                        <a href="/" class="brand" aria-label="Business Bots Solutions - Inicio">
+                            <div class="logo-container">
+                                <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1755725396/ChatGPT_Image_Apr_16_2025_12_31_00_AM_pbed1s.png" alt="Business Bots Solutions Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size:2rem;color:var(--neon-green);font-family:Orbitron\'>BB</div>'">
+                            </div>
+                            <span class="brand-text">Business Bots</span>
+                        </a>
+                        <nav aria-label="Navegación principal">
+                            <a href="../" class="nav-link">Inicio</a>
+                            <a href="../pages/discountservices.html" class="nav-link">Servicios</a>
+                            <a href="../pages/expressbudget.html" class="nav-link">Presupuesto Express</a>
+                            <a href="../pages/ticketandfaqs.html" class="nav-link">Soporte</a>
+                            <a href="../pages/businessbotshome.html" class="nav-link">BusinessBots Home</a>
+                            <div class="language-switcher">
+                                <button class="lang-btn active" data-lang="es">ES</button>
+                                <button class="lang-btn" data-lang="en">EN</button>
+                            </div>
+                            <a href="../pages/businessbotsform.html" class="cta-header">Agenda tu consulta</a>
+                        </nav>
+                    </div>
+                </header>
 
         <main role="main">
             <!-- ESPAÑOL -->
@@ -516,9 +517,30 @@
             </section>
         </main>
 
-        <footer role="contentinfo">
-            <p id="footer-text">Business Bots Solutions © 2025 — Servicios profesionales sin comisión por venta</p>
-        </footer>
+                <footer role="contentinfo">
+                    <div class="footer-content">
+                        <div class="footer-brand">
+                            <h3>Business Bots</h3>
+                            <p>Servicios profesionales de automatización y consultoría.</p>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Enlaces</h4>
+                            <ul style="list-style:none;padding-left:0">
+                                <li><a href="../">Inicio</a></li>
+                                <li><a href="../pages/discountservices.html">Servicios</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Legal</h4>
+                            <ul style="list-style:none;padding-left:0">
+                                <li><a href="#">Privacidad</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>© 2025 Business Bots — Todos los derechos reservados.</p>
+                    </div>
+                </footer>
     </div>
 
     <script>

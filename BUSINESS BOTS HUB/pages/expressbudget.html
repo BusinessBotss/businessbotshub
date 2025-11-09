@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Express Quote – Business Bots</title>
+  <link rel="stylesheet" href="../css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter :wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -86,6 +87,28 @@
   </style>
 </head>
 <body>
+  <header role="banner">
+    <div class="header-container">
+      <a href="/" class="brand" aria-label="Business Bots Solutions - Inicio">
+        <div class="logo-container">
+          <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1755725396/ChatGPT_Image_Apr_16_2025_12_31_00_AM_pbed1s.png" alt="Business Bots Solutions Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size:2rem;color:var(--neon-green);font-family:Orbitron\'>BB</div>'">
+        </div>
+        <span class="brand-text">Business Bots</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="../" class="nav-link">Inicio</a>
+        <a href="../pages/discountservices.html" class="nav-link">Servicios</a>
+        <a href="../pages/expressbudget.html" class="nav-link">Presupuesto Express</a>
+        <a href="../pages/ticketandfaqs.html" class="nav-link">Soporte</a>
+        <a href="../pages/businessbotshome.html" class="nav-link">BusinessBots Home</a>
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
   <div class="container">
     <div class="lang-selector">
       <span id="flag-en" class="lang-flag active">EN</span>
@@ -237,5 +260,29 @@ ${t.phone}: ${document.getElementById('phone').value}`;
       });
     });
   </script>
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Business Bots</h3>
+        <p>Servicios y consultas rápidas.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Enlaces</h4>
+        <ul style="list-style:none;padding-left:0">
+          <li><a href="../">Inicio</a></li>
+          <li><a href="../pages/discountservices.html">Servicios</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul style="list-style:none;padding-left:0">
+          <li><a href="#">Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Business Bots — Todos los derechos reservados.</p>
+    </div>
+  </footer>
 </body>
 </html>

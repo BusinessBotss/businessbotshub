@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitud de Consulta - Business Bots Solutions</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -121,33 +122,29 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="gradient-primary text-white py-4 px-6">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-1">
-                    <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1755725396/ChatGPT_Image_Apr_16_2025_12_31_00_AM_pbed1s.png" alt="Business Bots Solutions Logo" class="w-full h-full object-contain rounded" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="text-xl font-bold text-gray-900 hidden">🤖</span>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold">Business Bots Solutions</h1>
-                    <p class="text-sm text-gray-300">Automatización Inteligente & IA Conversacional</p>
-                </div>
+        <!-- Unified header -->
+        <header role="banner">
+            <div class="header-container">
+                <a href="/" class="brand" aria-label="Business Bots Solutions - Inicio">
+                    <div class="logo-container">
+                        <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1755725396/ChatGPT_Image_Apr_16_2025_12_31_00_AM_pbed1s.png" alt="Business Bots Solutions Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size:2rem;color:var(--neon-green);font-family:Orbitron\'>BB</div>'">
+                    </div>
+                    <span class="brand-text">Business Bots Solutions</span>
+                </a>
+                <nav aria-label="Navegación principal">
+                    <a href="/" class="nav-link">Inicio</a>
+                    <a href="../pages/discountservices.html" class="nav-link">Servicios</a>
+                    <a href="../pages/expressbudget.html" class="nav-link">Presupuesto Express</a>
+                    <a href="../pages/ticketandfaqs.html" class="nav-link">Soporte</a>
+                    <a href="../pages/businessbotshome.html" class="nav-link">BusinessBots Home</a>
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="es">ES</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <a href="../pages/businessbotsform.html" class="cta-header">Agenda tu consulta</a>
+                </nav>
             </div>
-            <div class="flex items-center space-x-4">
-                <!-- Language Selector -->
-                <div class="relative">
-                    <select id="languageSelector" class="bg-transparent text-white border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-white">
-                        <option value="es" class="text-black">🇪🇸 Español</option>
-                        <option value="en" class="text-black">🇬🇧 English</option>
-                        <option value="fr" class="text-black">🇫🇷 Français</option>
-                        <option value="de" class="text-black">🇩🇪 Deutsch</option>
-                        <option value="it" class="text-black">🇮🇹 Italiano</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </header>
+        </header>
 
     <!-- Main Content -->
     <main class="max-w-4xl mx-auto px-6 py-12">
