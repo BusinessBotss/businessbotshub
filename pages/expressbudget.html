@@ -1,0 +1,70 @@
+<section class="hero">
+  <div style="max-width: 900px;">
+    <h1>Presupuesto Express</h1>
+    <p class="hero-subtitle">Genera presupuestos profesionales en minutos</p>
+  </div>
+</section>
+
+<section style="padding: 4rem 1rem;">
+  <div class="container" style="max-width: 700px; margin: 0 auto;">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Crea tu presupuesto</h2>
+    
+    <form style="display: grid; gap: 1.5rem;">
+      <div>
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Empresa / Cliente</label>
+        <input type="text" placeholder="Nombre del cliente" required>
+      </div>
+      
+      <div>
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Descripción del Proyecto</label>
+        <textarea placeholder="Describe el trabajo o servicio..." required></textarea>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div>
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Cantidad de Horas</label>
+          <input type="number" placeholder="40" required>
+        </div>
+        <div>
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Tarifa Horaria (€)</label>
+          <input type="number" placeholder="50" required>
+        </div>
+      </div>
+      
+      <div>
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Materiales (€)</label>
+        <input type="number" placeholder="0" min="0">
+      </div>
+      
+      <div style="padding: 1rem; background: rgba(0, 212, 106, 0.1); border-radius: 10px;">
+        <p style="color: var(--muted); margin-bottom: 0.5rem;">Total Estimado:</p>
+        <p style="font-size: 1.5rem; color: var(--accent); font-weight: bold;">€2,500.00</p>
+      </div>
+      
+      <button type="submit" class="cta-primary" style="width: 100%; padding: 1rem; border: none; cursor: pointer;">
+        Generar Presupuesto
+      </button>
+    </form>
+  </div>
+</section>
+
+<section style="padding: 4rem 1rem; background: rgba(255,255,255,0.01);">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 1rem;">Ventajas de Express Budget</h2>
+    
+    <div class="grid cols-3" style="max-width: 900px; margin: 0 auto;">
+      <div class="card">
+        <h3>⚡ Rápido</h3>
+        <p>Genera presupuestos en segundos.</p>
+      </div>
+      <div class="card">
+        <h3>📊 Profesional</h3>
+        <p>Plantillas diseñadas para impresionar.</p>
+      </div>
+      <div class="card">
+        <h3>📧 Compartible</h3>
+        <p>Envía directamente por email o descarga.</p>
+      </div>
+    </div>
+  </div>
+</section>
