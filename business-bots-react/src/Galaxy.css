@@ -1,0 +1,5 @@
+/* Galaxy Animation Styles */
+canvas {
+  display: block;
+  background: linear-gradient(180deg, #0b0f12 0%, #071012 100%);
+}
