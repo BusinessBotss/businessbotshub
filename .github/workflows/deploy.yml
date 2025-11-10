@@ -1,0 +1,171 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: |
+            business-bots-react/package-lock.json
+
+      # Build Hub HTML (stays in root)
+      - name: Prepare Hub (HTML/Vanilla JS)
+        run: |
+          # Copy static files to docs folder for GitHub Pages
+          mkdir -p docs
+          cp index.html docs/
+          cp -r css docs/
+          cp -r js docs/
+          cp -r pages docs/
+          echo "✅ Hub HTML prepared for GitHub Pages in /docs"
+
+      # Build React App
+      - name: Install React dependencies
+        working-directory: ./business-bots-react
+        run: npm install
+
+      - name: Build React app
+        working-directory: ./business-bots-react
+        run: npm run build
+
+      - name: Copy React build to docs
+        run: |
+          mkdir -p docs/business-bots-react
+          cp -r business-bots-react/dist/* docs/business-bots-react/
+          echo "✅ React app built and copied to /docs/business-bots-react"
+
+      # Create index for GitHub Pages
+      - name: Create GitHub Pages index
+        run: |
+          cat > docs/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="es">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Business Bots Hub - Índice</title>
+            <link rel="stylesheet" href="css/styles.css">
+            <style>
+              .hub-index {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+                padding: 2rem;
+                max-width: 900px;
+                margin: 0 auto;
+              }
+              .hub-index h1 { font-size: 2.6rem; }
+              .hub-index .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                width: 100%;
+              }
+              .hub-index .card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              }
+              .hub-index .card:hover {
+                transform: translateY(-6px);
+              }
+              .hub-index a {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1.5rem;
+                border-radius: 14px;
+                background: linear-gradient(180deg, var(--surface), var(--muted-surface));
+                border: 1px solid rgba(255,255,255,0.03);
+                box-shadow: 0 10px 30px rgba(3,10,8,0.6);
+                transition: all 0.3s ease;
+                color: var(--text);
+                text-decoration: none;
+              }
+              .hub-index a:hover {
+                color: var(--accent);
+                transform: translateY(-6px);
+                box-shadow: 0 22px 46px rgba(2,9,6,0.6);
+              }
+              .hub-index a h3 { margin: 0; }
+              .hub-index a p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+            </style>
+          </head>
+          <body>
+            <div class="hub-index">
+              <h1>Business Bots Hub</h1>
+              <p style="text-align: center; color: var(--muted); font-size: 1.1rem;">
+                Centro unificado de aplicaciones y herramientas
+              </p>
+              
+              <div class="grid">
+                <a href="/">
+                  <h3>🌐 Hub Principal</h3>
+                  <p>Aplicación SPA con todas las herramientas integradas</p>
+                </a>
+                <a href="/business-bots-react/">
+                  <h3>🚀 Interfaz React</h3>
+                  <p>Versión moderna con fondo Galaxy interactivo</p>
+                </a>
+                <a href="pages/businessbotshome.html">
+                  <h3>🏠 Principal</h3>
+                  <p>Automatización inteligente para tu negocio</p>
+                </a>
+                <a href="pages/expressbudget.html">
+                  <h3>💰 Presupuesto Express</h3>
+                  <p>Genera presupuestos en minutos</p>
+                </a>
+                <a href="pages/discountservices.html">
+                  <h3>💳 Servicios</h3>
+                  <p>Descuentos y ofertas exclusivas</p>
+                </a>
+                <a href="pages/ticketandfaqs.html">
+                  <h3>🎫 Soporte & FAQs</h3>
+                  <p>Preguntas frecuentes y tickets</p>
+                </a>
+              </div>
+            </div>
+          </body>
+          </html>
+          EOF
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs'
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: ✅ Deployment Summary
+        run: |
+          echo "🎉 Deployment completed successfully!"
+          echo ""
+          echo "📍 URLs:"
+          echo "  • Hub Principal: https://${{ github.repository_owner }}.github.io/businessbotshub/"
+          echo "  • React App: https://${{ github.repository_owner }}.github.io/businessbotshub/business-bots-react/"
+          echo ""
+          echo "📊 Built files:"
+          echo "  • Hub HTML: /docs/index.html, /docs/css/, /docs/js/, /docs/pages/"
+          echo "  • React App: /docs/business-bots-react/"
